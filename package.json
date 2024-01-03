@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/slingr-stack/slingr-cypress-library#readme",
   "devDependencies": {
-    "cypress": "13.6.2"
+    "cypress": "13.6.2",
+    "cypress-network-idle": "^1.14.2"
   }
 }

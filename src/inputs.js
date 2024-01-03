@@ -1,3 +1,6 @@
+// *****************************************************
+// These commands are for handler Slingr platform inputs
+// *****************************************************
 
 /**
  * Chainable, select the value send by parameter in a dropdown input

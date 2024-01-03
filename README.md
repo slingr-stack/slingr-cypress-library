@@ -9,6 +9,11 @@ Provides common commands to handler slingr platform elements with cypress
 npm i @mduplessis/slingr-cypress-library
 ```
 
+### Topics
+
+Integrated with:
+- [x] https://www.npmjs.com/package/cypress-network-idle 
+
 ## Commands files
 1. dataManagment.js
 2. gridViews.js

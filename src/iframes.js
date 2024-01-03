@@ -1,3 +1,6 @@
+// *******************************************************
+// These commands are for handler Slingr platform iframes
+// *******************************************************
 
 Cypress.Commands.add('getIframeBody', () => {
     // get the iframe > document > body

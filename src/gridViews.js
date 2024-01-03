@@ -1,3 +1,7 @@
+// **********************************************************
+// These commands are for handler Slingr platform grid views
+// **********************************************************
+
 /**
  * Find the Row that contains the string send by parameters and return the row content in a grid view
  * @param {string} record - string to identify the row
@@ -55,7 +59,7 @@ Cypress.Commands.add('getRowByIndex', (index) => {
  @param {string} record - The record (row)
  @returns {string} - return 1 value of the table
  */
-Cypress.Commands.add('getTableDataByRecord', (columnName, record) => {
+Cypress.Commands.add('getTableValueByRecord', (columnName, record) => {
     return cy
         .contains('th', columnName)
         .invoke('index')

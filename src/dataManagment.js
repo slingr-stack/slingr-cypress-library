@@ -1,3 +1,7 @@
+// *****************************************************
+// These commands are for handler data in Slingr app
+// *****************************************************
+
 import dayjs from 'dayjs'
 
 /**
