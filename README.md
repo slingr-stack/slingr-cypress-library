@@ -7,6 +7,7 @@ Provides common commands to handler slingr platform elements with cypress
 ```
 # install using NPM
 npm i slingr-cypress-library
+
 ```
 
 ### Topics
@@ -21,3 +22,4 @@ Integrated with:
 3. iframes.js
 4. inputs.js
 5. menus.js
+
