@@ -6,7 +6,7 @@ Provides common commands to handler slingr platform elements with cypress
 
 ```
 # install using NPM
-npm i @mduplessis/slingr-cypress-library
+npm i slingr-cypress-library
 ```
 
 ### Topics
