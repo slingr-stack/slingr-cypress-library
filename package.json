@@ -1,6 +1,6 @@
 {
   "name": "slingr-cypress-library",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "src/index.js",
   "types": "src",
@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/slingr-stack/slingr-cypress-library#readme",
   "devDependencies": {
-    "cypress": "13.6.2",
-    "cypress-network-idle": "^1.14.2"
+    "cypress": "13.6.2"
   }
 }
