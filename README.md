@@ -1,6 +1,6 @@
 # slingr-cypress-library
 
-Provides common commands to handler slingr platform elements with cypress
+Provides common commands to handler slingr platform elements with cypress.
 
 ## Install
 
@@ -13,7 +13,6 @@ npm i slingr-cypress-library
 ### Topics
 
 Integrated with:
-
 - [x] https://www.npmjs.com/package/cypress-network-idle 
 
 ## Commands files
