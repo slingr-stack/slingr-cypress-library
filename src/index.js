@@ -24,7 +24,6 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import 'cypress-network-idle'
 import './gridViews.js'
 import './iframes.js'
 import './inputs.js'
