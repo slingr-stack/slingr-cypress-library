@@ -13,6 +13,7 @@ npm i slingr-cypress-library
 ### Topics
 
 Integrated with:
+
 - [x] https://www.npmjs.com/package/cypress-network-idle 
 
 ## Commands files
