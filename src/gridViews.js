@@ -74,6 +74,34 @@ Cypress.Commands.add('getTableValueByRecord', (columnName, record) => {
 })
 
 /**
+ * Returns the value of the record column (exact match) sent by parameter
+ * e.i:
+ * | Profile | Status   | Date |
+ * ---------------------------
+ * | Micro   | New      | 1/12 |
+ * ---------------------------
+ * | Water   | Verified | 2/09 |
+ * -----------------------------
+ * cy.getTableDataByRecord("Status", "Micro") => return "New"
+ @param {string} columnName - The column name of the table
+ @param {string} record - The record (row, exact match)
+ @returns {string} - return 1 value of the table
+ */
+ Cypress.Commands.add('getTableValueByExactMatchRecord', (columnName, record) => {
+    let regex = new RegExp("^" + record + "$")
+    return cy
+        .contains('th', columnName)
+        .invoke('index')
+        .then((index) => {
+            cy.contains(regex).parents('td')
+                .should('have.length', 1)
+                .siblings()
+                .eq(index - 1)
+                .invoke('text')
+        })
+})
+
+/**
  * Find the Row that contains the string send by parameters and click the row's checkbox
  * @param {string} record - string to identify the row
  */
