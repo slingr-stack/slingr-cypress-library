@@ -29,7 +29,7 @@ Cypress.Commands.add('getIframeBody', (selector) => {
  @param {string} iframeSelector - iframe selector
  @param {string} columnName - The column name of the table, exact match
  @param {string} record - The record (row)
- @returns {string} - return 1 value of the table
+ @returns {string} - return 1 value of the table.
  */
 Cypress.Commands.add('iFrameGetTableValueByRecord', (iframeSelector, columnName, record) => {
     return cy
