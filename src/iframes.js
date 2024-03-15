@@ -31,12 +31,12 @@ Cypress.Commands.add('getIframeBody', (selector) => {
  @param {string} record - The record (row)
  @returns {string} - return 1 value of the table
  */
- Cypress.Commands.add('iFrameGetTableValueByRecord', (iframeSelector, columnName, record) => {
+Cypress.Commands.add('iFrameGetTableValueByRecord', (iframeSelector, columnName, record) => {
     return cy
         .getIframeBody(iframeSelector).contains('th', new RegExp("^" + columnName + "$"))
         .invoke('index')
         .then((index) => {
-            cy.getIframeBody(iframeSelector).contains('td', record)
+            cy.getIframeBody(iframeSelector).contains('td', new RegExp("^" + record + "$"))
                 .should('have.length', 1)
                 .siblings()
                 .eq(index - 1)
