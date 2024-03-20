@@ -87,7 +87,7 @@ Cypress.Commands.add('getTableValueByRecord', (columnName, record) => {
  @param {string} record - The record (row, exact match)
  @returns {string} - return 1 value of the table
  */
- Cypress.Commands.add('getTableValueByExactMatchRecord', (columnName, record) => {
+Cypress.Commands.add('getTableValueByExactMatchRecord', (columnName, record) => {
     let regex = new RegExp("^" + record + "$")
     return cy
         .contains('th', columnName)
@@ -133,7 +133,7 @@ Cypress.Commands.add('filterBy', (column, value) => {
         .then((index) => {
             cy.get(searchField)
                 .eq(index - 1)
-                .type(value + "{enter}")
+                .type("{selectAll}" + value + "{enter}")
         })
 })
 
