@@ -133,7 +133,6 @@ Cypress.Commands.add('filterBy', (column, value) => {
         .then((index) => {
             cy.get(searchField)
                 .eq(index - 1)
-                .clear()
                 .type("{selectAll}" + value + "{enter}")
         })
 })
