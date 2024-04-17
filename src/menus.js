@@ -35,6 +35,7 @@ Cypress.Commands.add('selectMainMenuOption', (option) => {
  * @param {string} button - The name of the button in the Action menu
  */
 Cypress.Commands.add('clickOnActionMenuButton', (button) => {
+    cy.scrollTo("top")
     actionButton = '#card-header-actions span > button'
     cy.get(actionButton).contains(button, { matchCase: false }).click()
 
