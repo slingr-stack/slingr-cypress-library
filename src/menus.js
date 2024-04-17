@@ -27,7 +27,6 @@ Cypress.Commands.add('openMainMenu', () => {
 Cypress.Commands.add('selectMainMenuOption', (option) => {
     menuOption = '.sidebar__item span'
     cy.get(menuOption).contains(option, { matchCase: false }).click()
-
 })
 
 /**
@@ -38,7 +37,6 @@ Cypress.Commands.add('clickOnActionMenuButton', (button) => {
     cy.scrollTo("top")
     actionButton = '#card-header-actions span > button'
     cy.get(actionButton).contains(button, { matchCase: false }).click()
-
 })
 
 /**
