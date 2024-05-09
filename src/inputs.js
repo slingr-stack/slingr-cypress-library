@@ -8,7 +8,7 @@
  */
 Cypress.Commands.add('selectValue', { prevSubject: 'element' }, (subject, value) => {
     cy.wrap(subject).type(value, { delay: 1 })
-    cy.waitForNetworkIdle('POST, GET', 1000, { log: false })
-    cy.get('[role="listbox"]').contains(new RegExp("^" + value, "g")).click();
+    cy.waitForNetworkIdle('POST, GET', 1500, { log: false })
+    cy.get('[role="listbox"]').contains(new RegExp("^" + value, "g")).click('top');
     cy.waitForNetworkIdle('POST, GET', 2000, { log: false })
 })
