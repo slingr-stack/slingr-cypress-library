@@ -5,14 +5,14 @@
 Cypress.Commands.add('getIframeBody', (selector) => {
     // get the iframe > document > body
     // and retry until the body element is not empty
+    cy.log('getIframeBody')
     return cy
-        .get(selector, { timeout: 5000 })
-        .its('0.contentDocument').should('exist')
-        .its('body').should('not.be.undefined')
+        .get(selector, { timeout: 5000, log: false })
+        .its('0.contentDocument.body', { log: false }).should('not.be.empty')
         // wraps "body" DOM element to allow
         // chaining more Cypress commands, like ".find(...)"
         // https://on.cypress.io/wrap
-        .then(cy.wrap)
+        .then(cy.wrap, { log: false })
 })
 
 

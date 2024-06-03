@@ -142,6 +142,6 @@ Cypress.Commands.add('filterBy', (column, value) => {
  * @param {string} option - Name of the quick filter
  */
 Cypress.Commands.add('quickFilterBy', (option) => {
-    quickFilters = '#quickFiltersArea li'
+    quickFilters = '.quick__filters li a'
     cy.get(quickFilters).contains(option).click()
 })
