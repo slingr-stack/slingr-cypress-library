@@ -118,7 +118,7 @@ Cypress.Commands.add('checkRow', (record) => {
 Cypress.Commands.add('kehubMenu', (record, optionMenu) => {
     kehub = '.table-cell-action span:first'
     cy.contains(record).parents('tr').find(kehub).click({ force: true })
-    cy.get("li > a").contains(optionMenu, { matchCase: false }).click()
+    cy.get("li > a").contains(optionMenu, { matchCase: false }).click({ force: true })
 })
 
 /**
