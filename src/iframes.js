@@ -2,7 +2,7 @@
 // These commands are for handler Slingr platform iframes
 // *******************************************************
 
-Cypress.Commands.add('getIframeBody', (selector) => {
+Cypress.Commands.add('getIframeBody', function getIframeBody(selector) {
     // get the iframe > document > body
     // and retry until the body element is not empty
     cy.log('getIframeBody')
@@ -31,13 +31,12 @@ Cypress.Commands.add('getIframeBody', (selector) => {
  @param {string} record - The record (row)
  @returns {string} - return 1 value of the table.
  */
-Cypress.Commands.add('iFrameGetTableValueByRecord', (iframeSelector, columnName, record) => {
-    return cy
-        .getIframeBody(iframeSelector).contains('th', new RegExp("^" + columnName + "$"))
+Cypress.Commands.add('iFrameGetTableValueByRecord', function iFrameGetTableValueByRecord(iframeSelector, columnName, record) {
+    cy.log('iFrameGetTableValueByRecord')
+    cy.getIframeBody(iframeSelector).contains('th', new RegExp("^" + columnName + "$"))
         .invoke('index')
         .then((index) => {
-            cy.getIframeBody(iframeSelector).contains('td', new RegExp("^" + record + "$"))
-                .should('have.length', 1)
+            return cy.getIframeBody(iframeSelector).contains('td', new RegExp("^" + record + "$"))
                 .siblings()
                 .eq(index - 1)
                 .invoke('text')
