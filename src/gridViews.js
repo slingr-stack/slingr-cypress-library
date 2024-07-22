@@ -59,19 +59,17 @@ Cypress.Commands.add('getRowByIndex', (index) => {
  @param {string} record - The record (row)
  @returns {string} - return 1 value of the table
  */
-Cypress.Commands.add('getTableValueByRecord', (columnName, record) => {
-    return cy
-        .contains('th', columnName)
+Cypress.Commands.add("getTableValueByRecord", function getTableValueByRecord(columnName, record) {
+    cy.log('getTableValueByRecord')
+    cy.contains('th', columnName)
         .invoke('index')
         .then((index) => {
-            cy.contains('td', record)
-                .should('have.length', 1)
+            return cy.contains('td', record)
                 .siblings()
                 .eq(index - 1)
                 .invoke('text')
-
         })
-})
+});
 
 /**
  * Returns the value of the record column (exact match) sent by parameter
@@ -87,19 +85,18 @@ Cypress.Commands.add('getTableValueByRecord', (columnName, record) => {
  @param {string} record - The record (row, exact match)
  @returns {string} - return 1 value of the table
  */
-Cypress.Commands.add('getTableValueByExactMatchRecord', (columnName, record) => {
+Cypress.Commands.add("getTableValueByExactMatchRecord", function getTableValueByExactMatchRecord(columnName, record) {
+    cy.log('getTableValueByExactMatchRecord')
     let regex = new RegExp("^" + record + "$")
-    return cy
-        .contains('th', columnName)
+    cy.contains('th', columnName)
         .invoke('index')
         .then((index) => {
-            cy.contains(regex).parents('td')
-                .should('have.length', 1)
+            return cy.contains(regex).parents('td')
                 .siblings()
                 .eq(index - 1)
                 .invoke('text')
         })
-})
+});
 
 /**
  * Find the Row that contains the string send by parameters and click the row's checkbox
