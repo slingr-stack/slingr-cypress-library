@@ -12,7 +12,7 @@ Cypress.Commands.add('login', (username, password) => {
             cy.visit('/login')
             cy.get("#email").type(username)
             cy.get("#password").type(`${password}{enter}`, { log: false })
-            cy.url().should('include', '/63f40037f73d754fbf4715ef')
+            cy.url().should('include', '/runtime/#views/')
             cy.get('.runtimeHeader__nav-item-container span').should('not.be.empty')
         },
         {
