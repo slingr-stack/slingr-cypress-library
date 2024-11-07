@@ -40,6 +40,25 @@ Cypress.Commands.add('clickOnActionMenuButton', (button) => {
 })
 
 /**
+ * Click on the button send by parameter un the Action menu
+ * inclusive if it is hidden in More button
+ * @param {string} button - The name of the button in the Action menu
+ */
+Cypress.Commands.add('clickOnActionMenuButtonAssert', (button) => {
+    cy.scrollTo("top", { ensureScrollable: false })
+    actionButton = '#card-header-actions span button'
+    buttonOptions = '#card-header-actions li a'
+    cy.get('body').find(actionButton).invoke('text').then(($el) => {
+        if (!$el.includes(button)) {
+            cy.get(actionButton).contains('More').click()
+            cy.get(buttonOptions).contains(button, { matchCase: false }).click()
+        } else {
+            cy.get(actionButton).contains(button, { matchCase: false }).click()
+        }
+    })
+})
+
+/**
  * Click on notification button in Header menu
  */
 Cypress.Commands.add('clickOnNotificationButton', () => {
