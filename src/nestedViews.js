@@ -1,9 +1,9 @@
-// *****************************************************
+// *************************************************************
 // These commands are for handler Slingr platform nested views
-// *****************************************************
+// *************************************************************
 
 /**
- * Click on the button send by parameter un the Action menu of aa nested view
+ * Click on the button send by parameter un the Action menu of a nested view
  * inclusive if it is hidden in More button
  * @param {string} button - The name of the button in the Action menu
  */
