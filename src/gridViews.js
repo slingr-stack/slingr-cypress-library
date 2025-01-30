@@ -130,7 +130,7 @@ Cypress.Commands.add('filterBy', (column, value) => {
         .then((index) => {
             cy.get(searchField)
                 .eq(index - 1)
-                .type("{selectAll}" + value + "{enter}")
+                .type("{selectAll}" + value + "{enter}", { delay: 20 })
         })
 })
 
