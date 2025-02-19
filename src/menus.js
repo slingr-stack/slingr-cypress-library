@@ -67,9 +67,9 @@ Cypress.Commands.add('clickOnNotificationButton', () => {
 })
 
 /**
- * Click on user button in Header menu
+ * Click on the button send by parameter in Header menu
  */
-Cypress.Commands.add('clickOnUserButton', () => {
-    userButton = '.runtimeHeader__nav-item-container > span'
-    cy.get(userButton).click()
+Cypress.Commands.add('clickOnHeaderMenuButton', (button) => {
+    userButton = '.runtimeHeader__nav-item'
+    cy.get(userButton).contains(button).click()
 })
