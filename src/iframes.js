@@ -33,10 +33,10 @@ Cypress.Commands.add('getIframeBody', function getIframeBody(selector) {
  */
 Cypress.Commands.add('iFrameGetTableValueByRecord', function iFrameGetTableValueByRecord(iframeSelector, columnName, record) {
     cy.log('iFrameGetTableValueByRecord')
-    cy.getIframeBody(iframeSelector).contains('th', new RegExp("^" + columnName + "$"))
+    cy.getIframeBody(iframeSelector).contains('th', new RegExp(Cypress._.escapeRegExp(columnName)))
         .invoke('index')
         .then((index) => {
-            return cy.getIframeBody(iframeSelector).contains('td', new RegExp("^" + record + "$"))
+            return cy.getIframeBody(iframeSelector).contains('td', new RegExp(Cypress._.escapeRegExp(record)))
                 .siblings()
                 .eq(index - 1)
                 .invoke('text')
