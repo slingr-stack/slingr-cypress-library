@@ -86,8 +86,43 @@ Cypress.Commands.add("getTableValueByRecord", function getTableValueByRecord(col
  @returns {string} - return 1 value of the table
  */
 Cypress.Commands.add("getTableValueByExactMatchRecord", function getTableValueByExactMatchRecord(columnName, record) {
-    cy.log('getTableValueByExactMatchRecord')
+    const log = Cypress.log({
+        name: 'getTableValueByExactMatchRecord',
+        displayName: 'Get Table Value By Exact Match:',
+        message: `TO BE DEPRECATED: getTableValueExactMatchRecord`,
+    })
     let regex = new RegExp("^" + record + "$")
+    cy.contains('th', columnName)
+        .invoke('index')
+        .then((index) => {
+            return cy.contains(regex).parents('td')
+                .siblings()
+                .eq(index - 1)
+                .invoke('text')
+        })
+});
+
+/**
+ * Returns the value of the record column (exact match) sent by parameter
+ * e.i:
+ * | Profile | Status   | Date |
+ * ---------------------------
+ * | Micro   | New      | 1/12 |
+ * ---------------------------
+ * | Water   | Verified | 2/09 |
+ * -----------------------------
+ * cy.getTableDataByRecord("Status", "Micro") => return "New"
+ @param {string} columnName - The column name of the table
+ @param {string} record - The record (row, exact match)
+ @returns {string} - return 1 value of the table
+ */
+Cypress.Commands.add("getTableValueExactMatchRecord", function getTableValueExactMatchRecord(columnName, record) {
+    const log = Cypress.log({
+        name: 'getTableValueExactMatchRecord',
+        displayName: 'Get Table Value By Exact Match:',
+        message: `Column: ${columnName}, Record: ${record}`,
+    })
+    let regex = new RegExp(`^ ${Cypress._.escapeRegExp(record)} $`)
     cy.contains('th', columnName)
         .invoke('index')
         .then((index) => {
