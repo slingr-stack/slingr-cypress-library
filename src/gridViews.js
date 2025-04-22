@@ -122,7 +122,7 @@ Cypress.Commands.add("getTableValueExactMatchRecord", function getTableValueExac
         displayName: 'Get Table Value By Exact Match:',
         message: `Column: ${columnName}, Record: ${record}`,
     })
-    let regex = new RegExp(`^${Cypress._.escapeRegExp(record)}$`)
+    let regex = new RegExp(`^ ${Cypress._.escapeRegExp(record)} $`)
     cy.contains('th', columnName)
         .invoke('index')
         .then((index) => {
