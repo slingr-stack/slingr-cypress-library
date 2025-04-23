@@ -28,7 +28,7 @@ Cypress.Commands.add('selectValue', { prevSubject: 'element' }, (subject, value)
 Cypress.Commands.add('selectValueEC', { prevSubject: 'element' }, (subject, value) => {
     const log = Cypress.log({
         name: 'selectValueEC',
-        displayName: 'Select dropdown value (exact match, EC):',
+        displayName: 'selectValueEC (exact match): ',
         message: `Value: ${value}`,
     })
     cy.wrap(subject).type(value, { delay: 1 })
@@ -62,7 +62,7 @@ Cypress.Commands.add('selectValueMatchBeginning', { prevSubject: 'element' }, (s
 Cypress.Commands.add('selectValueMatchBeginningEC', { prevSubject: 'element' }, (subject, value) => {
     const log = Cypress.log({
         name: 'selectValueMatchBeginningEC',
-        displayName: 'Select dropdown value (match the beginning, EC):',
+        displayName: 'selectValueMatchBeginningEC: ',
         message: `Value: ${value}`,
     })
 
@@ -97,7 +97,7 @@ Cypress.Commands.add('selectValueByPartialMatch', { prevSubject: 'element' }, (s
 Cypress.Commands.add('selectValueByPartialMatchEC', { prevSubject: 'element' }, (subject, value) => {
     const log = Cypress.log({
         name: 'selectValueByPartialMatchEC',
-        displayName: 'Select value by partial match (EC):',
+        displayName: 'selectValueByPartialMatchEC: ',
         message: `Value: ${value}`,
     })
     let regex = new RegExp(Cypress._.escapeRegExp(value))

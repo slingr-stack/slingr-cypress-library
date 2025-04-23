@@ -88,7 +88,7 @@ Cypress.Commands.add("getTableValueByRecord", function getTableValueByRecord(col
 Cypress.Commands.add("getTableValueByExactMatchRecord", function getTableValueByExactMatchRecord(columnName, record) {
     const log = Cypress.log({
         name: 'getTableValueByExactMatchRecord',
-        displayName: 'Get Table Value By Exact Match:',
+        displayName: 'getTableValueByExactMatchRecord: ',
         message: `TO BE DEPRECATED: use getTableValueByExactMatchRecordEC`,
     })
     let regex = new RegExp("^" + record + "$")
@@ -120,7 +120,7 @@ Cypress.Commands.add("getTableValueByExactMatchRecord", function getTableValueBy
 Cypress.Commands.add("getTableValueByExactMatchRecordEC", function getTableValueByExactMatchRecordEC(columnName, record) {
     const log = Cypress.log({
         name: 'getTableValueByExactMatchRecordEC',
-        displayName: 'Get Table Value By Exact Match (EC):',
+        displayName: 'getTableValueByExactMatchRecordEC: ',
         message: `Column: ${columnName}, Record: ${record}`,
     })
     let regex = new RegExp(`^${Cypress._.escapeRegExp(record)}$`)
