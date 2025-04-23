@@ -5,7 +5,11 @@
 Cypress.Commands.add('getIframeBody', function getIframeBody(selector) {
     // get the iframe > document > body
     // and retry until the body element is not empty
-    cy.log('getIframeBody')
+    const log = Cypress.log({
+        name: 'getIframeBody',
+        displayName: 'getIframeBody: ',
+        message: `Selector: ${selector}`,
+    })
     return cy
         .get(selector, { timeout: 5000, log: false })
         .its('0.contentDocument.body', { log: false }).should('not.be.empty')
@@ -32,6 +36,11 @@ Cypress.Commands.add('getIframeBody', function getIframeBody(selector) {
  @returns {string} - return 1 value of the table.
  */
 Cypress.Commands.add('iFrameGetTableValueByRecord', function iFrameGetTableValueByRecord(iframeSelector, columnName, record) {
+    const log = Cypress.log({
+        name: 'iFrameGetTableValueByRecord',
+        displayName: 'iFrameGetTableValueByRecord: ',
+        message: `Selector: ${iframeSelector}, Column: ${columnName}, Record: ${record}`,
+    })
     cy.log('iFrameGetTableValueByRecord')
     let regexC = new RegExp(`^${Cypress._.escapeRegExp(columnName)}$`)
     let regexR = new RegExp(`^${Cypress._.escapeRegExp(record)}$`)
