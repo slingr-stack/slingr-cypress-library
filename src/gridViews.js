@@ -89,7 +89,7 @@ Cypress.Commands.add("getTableValueByExactMatchRecord", function getTableValueBy
     const log = Cypress.log({
         name: 'getTableValueByExactMatchRecord',
         displayName: 'Get Table Value By Exact Match:',
-        message: `TO BE DEPRECATED: getTableValueExactMatchRecord`,
+        message: `TO BE DEPRECATED: use getTableValueByExactMatchRecordEC`,
     })
     let regex = new RegExp("^" + record + "$")
     cy.contains('th', columnName)
@@ -104,6 +104,7 @@ Cypress.Commands.add("getTableValueByExactMatchRecord", function getTableValueBy
 
 /**
  * Returns the value of the record column (exact match) sent by parameter
+ * Works with special characters
  * e.i:
  * | Profile | Status   | Date |
  * ---------------------------
@@ -111,18 +112,18 @@ Cypress.Commands.add("getTableValueByExactMatchRecord", function getTableValueBy
  * ---------------------------
  * | Water   | Verified | 2/09 |
  * -----------------------------
- * cy.getTableDataByRecord("Status", "Micro") => return "New"
+ * cy.getTableValueByExactMatchRecordEC("Status", "Micro") => return "New"
  @param {string} columnName - The column name of the table
  @param {string} record - The record (row, exact match)
  @returns {string} - return 1 value of the table
  */
-Cypress.Commands.add("getTableValueExactMatchRecord", function getTableValueExactMatchRecord(columnName, record) {
+Cypress.Commands.add("getTableValueByExactMatchRecordEC", function getTableValueByExactMatchRecordEC(columnName, record) {
     const log = Cypress.log({
-        name: 'getTableValueExactMatchRecord',
-        displayName: 'Get Table Value By Exact Match:',
+        name: 'getTableValueByExactMatchRecordEC',
+        displayName: 'Get Table Value By Exact Match (EC):',
         message: `Column: ${columnName}, Record: ${record}`,
     })
-    let regex = new RegExp(`^ ${Cypress._.escapeRegExp(record)} $`)
+    let regex = new RegExp(`^${Cypress._.escapeRegExp(record)}$`)
     cy.contains('th', columnName)
         .invoke('index')
         .then((index) => {
