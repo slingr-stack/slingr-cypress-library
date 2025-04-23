@@ -66,7 +66,7 @@ Cypress.Commands.add('selectValueMatchBeginningEC', { prevSubject: 'element' }, 
         message: `Value: ${value}`,
     })
 
-    let regex = new RegExp(`^${Cypress._.escapeRegExp(value)},g`)
+    let regex = new RegExp(`^${Cypress._.escapeRegExp(value)}*`)
     cy.wrap(subject).type(value, { delay: 1 })
     cy.waitForNetworkIdle('POST, GET', 1500, { log: false })
     cy.get('[role="listbox"]').contains(regex).click('top');
