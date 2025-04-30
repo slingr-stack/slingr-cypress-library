@@ -42,8 +42,8 @@ Cypress.Commands.add('iFrameGetTableValueByRecord', function iFrameGetTableValue
         message: `Selector: ${iframeSelector}, Column: ${columnName}, Record: ${record}`,
     })
     cy.log('iFrameGetTableValueByRecord')
-    let regexC = new RegExp(`^${Cypress._.escapeRegExp(columnName)}$`)
-    let regexR = new RegExp(`^${Cypress._.escapeRegExp(record)}$`)
+    let regexC = new RegExp(`^\\s*${Cypress._.escapeRegExp(columnName)}\\s*$`)
+    let regexR = new RegExp(`^\\s*${Cypress._.escapeRegExp(record)}\\s*$`)
     cy.getIframeBody(iframeSelector).contains('th', regexC)
         .invoke('index')
         .then((index) => {
