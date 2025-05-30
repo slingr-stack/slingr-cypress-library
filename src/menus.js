@@ -51,6 +51,7 @@ Cypress.Commands.add('clickOnActionMenuButtonAssert', (button) => {
     cy.get('body').find(actionButton).invoke('text').then(($el) => {
         if (!$el.includes(button)) {
             cy.get(actionButton).contains('More').click()
+            cy.wait(1500)
             cy.get(buttonOptions).contains(button, { matchCase: false }).click()
         } else {
             cy.get(actionButton).contains(button, { matchCase: false }).click()
