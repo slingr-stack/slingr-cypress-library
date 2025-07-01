@@ -168,6 +168,7 @@ Cypress.Commands.add('filterBy', (column, value) => {
                 .eq(index - 1)
                 .type("{selectAll}" + value + "{enter}", { delay: 40 })
         })
+    cy.waitForNetworkIdle('POST, GET', 2000, { log: false })
 })
 
 /**
