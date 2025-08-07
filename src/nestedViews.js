@@ -14,6 +14,8 @@ Cypress.Commands.add('clickOnActionMenuButtonInNestedView', (button) => {
     buttonOptions = '.tabs__container #card-header-actions li a'
     cy.get('body').find(actionButton).invoke('text').then(($el) => {
         if (!$el.includes(button)) {
+            cy.get(actionButton).contains('More').scrollIntoView()
+            cy.waitForNetworkIdle('POST, GET', 1000, { log: false })
             cy.get(actionButton).contains('More').click()
             cy.waitForNetworkIdle('POST, GET', 1000, { log: false })
             cy.get(buttonOptions).contains(button, { matchCase: false }).click()
