@@ -165,7 +165,7 @@ Cypress.Commands.add('filterBy', (column, value) => {
         .invoke('index')
         .then((index) => {
             cy.get(searchField)
-                .eq(index - 1).scrollIntoView().clear()
+                .eq(index - 1).clear()
             cy.get(searchField)
                 .eq(index - 1)
                 .type(value + "{enter}", { delay: 40 })
