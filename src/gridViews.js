@@ -165,8 +165,10 @@ Cypress.Commands.add('filterBy', (column, value) => {
         .invoke('index')
         .then((index) => {
             cy.get(searchField)
+                .eq(index - 1).clear()
+            cy.get(searchField)
                 .eq(index - 1)
-                .type("{selectAll}" + value + "{enter}", { delay: 40 })
+                .type(value + "{enter}", { delay: 40 })
         })
     cy.waitForNetworkIdle('POST, GET', 2000, { log: false })
 })
