@@ -25,8 +25,13 @@ Cypress.Commands.add('openMainMenu', () => {
  * @param {string} option - The value to be selected
  */
 Cypress.Commands.add('selectMainMenuOption', (option) => {
+    const log = Cypress.log({
+        name: 'selectMainMenuOption',
+        displayName: 'Select Main Menu Option: ',
+        message: `Option: ${option}`,
+    })
     menuOption = '.sidebar__item span'
-    cy.get(menuOption).contains(option, { matchCase: false }).click()
+    cy.get(menuOption).contains(new RegExp(`^${option}$`, 'i')).click()
 })
 
 /**
