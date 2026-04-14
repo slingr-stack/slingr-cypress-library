@@ -61,13 +61,15 @@ Cypress.Commands.add('getRowByIndex', (index) => {
  */
 Cypress.Commands.add("getTableValueByRecord", function getTableValueByRecord(columnName, record) {
     cy.log('getTableValueByRecord')
-    cy.contains('th', columnName)
+    cy.contains('th:visible', columnName)
         .invoke('index')
-        .then((index) => {
-            return cy.contains('td', record)
-                .siblings()
-                .eq(index - 1)
+        .then((columnIndex) => {
+            return cy.contains('td:visible', record)
+                .closest('tr')      
+                .find('td')         
+                .eq(columnIndex)   
                 .invoke('text')
+                .then(text => text.trim());
         })
 });
 
